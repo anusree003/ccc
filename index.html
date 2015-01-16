@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
- <head>
- <meta http-equiv="Content-type" content="text/html;
- charset=utf-8">
- <meta name="viewport" id="viewport"
- content="width=device-width, height=device-height,
- initial-scale=1.0, maximum-scale=1.0,
- user-scalable=no" />
- <script type="text/javascript" charset="utf-8"
- src="phonegap.js"></script>
- <script type="text/javascript" charset="utf-8">
- function onBodyLoad() {
- document.addEventListener("deviceready",onDeviceReady,
- false);
- }
- function onDeviceReady() {
- navigator.notification.alert("PhoneGap is ready!");
- }
- </script>
- </head>
- <body onload="onBodyLoad()">
- <h1>HelloWorld2</h1>
- <p>This is a sample PhoneGap application.</p>
- </body>
+  <head>
+    <title>Notification Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+    function alertDismissed() {
+        // do something
+    }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    </script>
+  </head>
+  <body>
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+  </body>
 </html>
